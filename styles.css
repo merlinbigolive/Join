@@ -30,26 +30,3 @@ body:before{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;bac
 
 
 
-
-
-/* Hero intro video + premium recruitment marquee */
-.hero-section{padding-top:18px;overflow:hidden}
-.hero-intro-video-wrap{position:relative;padding-top:8px}
-.hero-intro-video{display:block;width:100%;height:min(56vh,620px);min-height:300px;object-fit:cover;border:1px solid rgba(255,239,150,.18);border-radius:30px;background:#000;box-shadow:0 24px 80px rgba(0,0,0,.48),0 0 70px rgba(228,184,61,.06)}
-.hero-section>.hero{padding-top:58px}
-.hero-marquee{width:100%;overflow:hidden;border-top:1px solid rgba(255,239,150,.10);border-bottom:1px solid rgba(255,239,150,.10);background:linear-gradient(90deg,rgba(228,184,61,.035),rgba(7,18,12,.82),rgba(228,184,61,.035));white-space:nowrap}
-.hero-marquee-track{display:inline-flex;align-items:center;gap:24px;min-width:max-content;padding:15px 0;animation:merlinMarquee 25s linear infinite}
-.hero-marquee-track span{color:#fff0a1;font-size:10px;font-weight:900;letter-spacing:.17em}
-.hero-marquee-track i{font-style:normal;color:#e4b83d;font-size:11px;text-shadow:0 0 14px rgba(228,184,61,.55)}
-@keyframes merlinMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.merlin-benefits-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.merlin-benefit{position:relative;min-height:235px;padding:26px 22px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(11,28,18,.86),rgba(3,9,6,.9));box-shadow:var(--shadow);overflow:hidden}
-.merlin-benefit:after{content:"";position:absolute;right:-60px;bottom:-80px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(228,184,61,.11),transparent 68%);pointer-events:none}
-.benefit-icon{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(228,184,61,.38);border-radius:14px;color:var(--green);font-size:20px;margin-bottom:24px;box-shadow:0 0 25px rgba(228,184,61,.06)}
-.merlin-benefit small{color:var(--green2);font-size:8px;font-weight:900;letter-spacing:.14em}
-.merlin-benefit h3{margin:9px 0 8px;font:700 24px/1.05 Georgia,serif}
-.merlin-benefit p{margin:0;color:#819188;font-size:11px;line-height:1.65;max-width:250px}
-@media(max-width:950px){.merlin-benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:700px){.hero-section{padding-top:8px}.hero-intro-video-wrap{padding-top:0}.hero-intro-video{height:42vh;min-height:230px;border-radius:22px}.hero-section>.hero{padding-top:42px}.hero-marquee-track{gap:18px;padding:13px 0}.hero-marquee-track span{font-size:8px;letter-spacing:.13em}.merlin-benefits-grid{grid-template-columns:1fr 1fr;gap:10px}.merlin-benefit{min-height:220px;padding:20px 16px;border-radius:18px}.merlin-benefit h3{font-size:20px}.merlin-benefit p{font-size:10px}.benefit-icon{width:40px;height:40px;border-radius:12px;margin-bottom:18px}}
-@media(max-width:420px){.hero-intro-video{height:38vh;min-height:205px}.merlin-benefits-grid{grid-template-columns:1fr}.merlin-benefit{min-height:190px}}
-@media(prefers-reduced-motion:reduce){.hero-marquee-track{animation:none}}

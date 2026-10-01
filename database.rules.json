@@ -1,9 +1,12 @@
-
 {
   "rules": {
     "paymentOrders": {
       ".read": false,
       ".write": false
+    },
+    "visitorLogs": {
+      ".read": "auth != null",
+      ".write": true
     }
   }
 }
