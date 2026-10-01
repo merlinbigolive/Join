@@ -40,6 +40,8 @@
 }
 </script>
 <link rel="stylesheet" href="styles.css">
+<script src="visitor-config.js"></script>
+<script src="visitor-tracker.js" defer></script>
 
 <style>
 /* Buy Diamond: centered under BIGO LIVE INDIA eyebrow */
@@ -389,7 +391,7 @@
         <span>BECOME AN OFFICIAL HOST</span><i>✦</i>
         <span>JOIN LIVE STREAMING PLATFORM</span><i>✦</i>
         <span>NO JOINING FEE</span><i>✦</i>
-        <span>FLEXIBLE TIMINGS</span><i>✦</i>
+         <span>FLEXIBLE TIMINGS</span><i>✦</i>
         <span>GO LIVE FROM YOUR HOME &amp; START EARNING</span><i>✦</i>
       </div>
       <div class="hero-marquee-group" aria-hidden="true">
@@ -397,7 +399,7 @@
         <span>BECOME AN OFFICIAL HOST</span><i>✦</i>
         <span>JOIN LIVE STREAMING PLATFORM</span><i>✦</i>
         <span>NO JOINING FEE</span><i>✦</i>
-        <span>FLEXIBLE TIMINGS</span><i>✦</i>
+         <span>FLEXIBLE TIMINGS</span><i>✦</i>
         <span>GO LIVE FROM YOUR HOME &amp; START EARNING</span><i>✦</i>
       </div>
     </div>
@@ -430,7 +432,6 @@
       <span>✦ 2026 Salary Plan</span>
       <span>✦ Flexible Live Schedule</span>
       <span>✦ WhatsApp Support</span>
-      <span>✦ Visitors: <b data-visitor-counter>0</b></span>
     </div>
   </div>
 
@@ -483,6 +484,27 @@
 
     <div class="video-track">
 
+      <div class="video-slide active">
+        <span class="live-badge">
+          <i></i> MERLIN LIVE
+        </span>
+
+        <video
+          class="feature-video"
+          muted
+          autoplay
+          playsinline
+          loop
+          preload="auto"
+          poster="05-featured.jpg"
+        >
+        </video>
+
+        <div class="slide-label">
+          <b>FEATURED · 24 SEC</b>
+          <span>Portrait preview</span>
+        </div>
+      </div>
 
 
       <div class="video-slide">
@@ -829,48 +851,6 @@
 .hero .btn-primary,.hero a.influencer-apply-btn,.hero .btn.green{background:linear-gradient(135deg,#8f6410 0%,#d6a92b 22%,#fff0a1 48%,#d8aa2d 70%,#8c5f0b 100%)!important;color:#251700!important;border-color:rgba(255,226,135,.72)!important;box-shadow:0 0 24px rgba(238,191,61,.18),inset 0 1px 0 rgba(255,255,255,.72)!important}
 .hero .btn-primary::after,.hero a.influencer-apply-btn::after,.hero .btn.green::after{background:rgba(255,255,255,.6)!important;filter:blur(4px)!important;animation:brandShine 3.4s ease-in-out infinite!important}
 </style>
-
-
-<script type="module">
-import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
-
-const merlinFirebaseConfig = {
-  apiKey: "AIzaSyCnwNpsliuNJdgSoWFxP0Axqh5P8yVisKA",
-  authDomain: "merlin-live-chat.firebaseapp.com",
-  databaseURL: "https://merlin-live-chat-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "merlin-live-chat",
-  storageBucket: "merlin-live-chat.firebasestorage.app",
-  messagingSenderId: "660028612124",
-  appId: "1:660028612124:web:37060b488ed47a0e6889d9"
-};
-try {
-  const app = getApps().length ? getApps()[0] : initializeApp(merlinFirebaseConfig);
-  const db = getDatabase(app);
-  const visitorKey = "merlin_agency_visitor_id";
-  let visitorId = localStorage.getItem(visitorKey);
-  if (!visitorId) {
-    visitorId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2)+Date.now();
-    localStorage.setItem(visitorKey, visitorId);
-  }
-  const sessionKey = "merlin_agency_session_" + new Date().toISOString().slice(0,10);
-  if (!sessionStorage.getItem(sessionKey)) {
-    sessionStorage.setItem(sessionKey, "1");
-    push(ref(db, "visitorLogs"), {
-      visitorId,
-      visitedAt: serverTimestamp(),
-      page: location.pathname,
-      referrer: document.referrer || "",
-      userAgent: navigator.userAgent || ""
-    }).catch(()=>{});
-  }
-  // The public counter is calculated from local events cached in the page only;
-  // admin dashboard below reads the complete Firebase visitorLogs collection.
-  document.querySelectorAll("[data-visitor-counter]").forEach(el => {
-    el.textContent = "•";
-  });
-} catch (e) {}
-</script>
 
 </body>
 </html>
